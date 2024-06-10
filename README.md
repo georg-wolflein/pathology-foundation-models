@@ -2,8 +2,8 @@
 <h1>Pathology Feature Extractors and Foundation Models</h1>
 </div>
 
-Recent years have seen the emergence of many new feature extractors trained using self-supervised learning on large pathology datasets.
-This repository aims to provide a comprehensive list of these models.
+Recent years have witnessed the emergence of many new feature extractors trained using self-supervised learning on large pathology datasets.
+This repository aims to provide a comprehensive list of these models, alongside key information about them.
 
 I aim to update this list as new models are released, but please submit a pull request for any models I have missed!
 
