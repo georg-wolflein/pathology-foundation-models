@@ -32,3 +32,4 @@ Notes:
 - \# of WSIs, tiles, and patients are reported to 2 significant figures
 - IME = ImageNet epochs
 - Order is chronological
+- Some of these feature extractors have been evaluated in a benchmarking study for whole slide classification [here](https://arxiv.org/abs/2311.11772).
