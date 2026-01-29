@@ -30,3 +30,7 @@ This document explains how certain values in the `README.md` tables were derived
   - Barlow Twins: `scale=(0.08, 1.0)` → ~9-62x
   
   The full range spanning all three methods is ~9-62x. Base calculation: from 20x at scale=1.0: 20x × (224/512) = 8.75x; from 40x at scale=0.08 (BT): 40x × (224/(√0.08×512)) = 61.9x.
+
+## Phikon
+
+- **Magnification (~20-35x)**: Section 3.2 states tiles are extracted at 20× magnification (0.5 μm/px) with a fixed size of 224×224 pixels. Section 3.1 describes multi-crop augmentation: "two global crops [...] are sampled within a proportion of (32%, 100%) [...] of the original image size" and "Global [...] crops are resized to 224 × 224 pixels". At scale=1.0: 20x × (224/224) = 20x; at scale=0.32: 20x × (224/(√0.32×224)) = 35.4x.
