@@ -34,3 +34,12 @@ This document explains how certain values in the `README.md` tables were derived
 ## Phikon
 
 - **Magnification (~20-35x)**: Section 3.2 states tiles are extracted at 20× magnification (0.5 μm/px) with a fixed size of 224×224 pixels. Section 3.1 describes multi-crop augmentation: "two global crops [...] are sampled within a proportion of (32%, 100%) [...] of the original image size" and "Global [...] crops are resized to 224 × 224 pixels". At scale=1.0: 20x × (224/224) = 20x; at scale=0.32: 20x × (224/(√0.32×224)) = 35.4x.
+
+## CONCH
+
+- **Magnification: Not determinable.** Unlike other models that extract patches from WSIs at controlled magnifications, CONCH's pretraining data consists of 1.17M image-caption pairs from diverse published sources:
+  - Educational resources (textbooks, teaching materials)
+  - PubMed Central Open Access figures
+  - In-house BWH data
+
+  These are published figures at unknown and variable magnifications, not standardized WSI patches. The paper explicitly notes CONCH did not use public slide collections like TCGA, PAIP, or GTEx. While the iBOT vision encoder uses global crop scale (0.32, 1.0) with 224×224 output (Supplementary Table 33), the source image magnifications are not documented or controlled, making effective magnification impossible to calculate.
