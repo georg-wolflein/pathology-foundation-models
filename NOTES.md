@@ -34,7 +34,3 @@ This document explains how certain values in the `README.md` tables were derived
 ## Phikon
 
 - **Magnification (~20-35x)**: Section 3.2 states tiles are extracted at 20× magnification (0.5 μm/px) with a fixed size of 224×224 pixels. Section 3.1 describes multi-crop augmentation: "two global crops [...] are sampled within a proportion of (32%, 100%) [...] of the original image size" and "Global [...] crops are resized to 224 × 224 pixels". At scale=1.0: 20x × (224/224) = 20x; at scale=0.32: 20x × (224/(√0.32×224)) = 35.4x.
-
-## CONCH
-
-- **Magnification (~9-15x)**: The vision encoder is pretrained with iBOT on histopathology images. Supplementary Data Table 33 shows global crop scale (0.32, 1.0) with output size 224×224. The paper doesn't explicitly state the extraction magnification for iBOT pretraining data, but for downstream WSI processing (Methods section), tiles are "256 × 256 pixel tiles at ×10-equivalent magnification" resized to 224×224. Assuming similar source data for iBOT pretraining: at scale=1.0: 10x × (224/256) = 8.75x ≈ 9x; at scale=0.32: 10x × (224/(√0.32×256)) = 10x × (224/144.8) = 15.5x ≈ 15x. Note: training data includes diverse image-caption pairs from published sources, so magnification is not strictly controlled.
