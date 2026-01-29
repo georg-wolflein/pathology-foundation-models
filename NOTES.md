@@ -48,6 +48,14 @@ This document explains how certain values in the `README.md` tables were derived
 
 - **Magnification (~20-35x)**: Methods section states WSIs are scanned at 20x (0.5 MPP) and non-overlapping 224×224 tiles are extracted directly. DINOv2 default hyperparameters are used, which includes `global_crops_scale=(0.32, 1.0)` with 224×224 output. At scale=1.0: 20x × (224/224) = 20x; at scale=0.32: 20x × (224/(√0.32×224)) = 20x × (224/126.7) ≈ 35x.
 
+## Campanella et al. (DINO)
+
+- **Magnification (~20-32x)**: Methods section states slides were scanned at 0.25 MPP and "tissue tiles were extracted from each slide at 0.5 MPP resolution" (i.e., 20x). The paper explicitly states: "The SSL algorithms were cloned directly from their official GitHub repositories. Unless specified, no changes were made to the code except for customizing the data loading procedures." The official DINO repository uses `global_crops_scale=(0.4, 1.0)` with 224×224 output. At scale=1.0: 20x × (224/224) = 20x; at scale=0.4: 20x × (224/(√0.4×224)) = 20x × (224/141.7) ≈ 31.6x.
+
+## Campanella et al. (MAE)
+
+- **Magnification (~20-45x)**: Same tile extraction as DINO variant—0.5 MPP (20x). The official MAE repository uses `RandomResizedCrop(224, scale=(0.2, 1.0))`. At scale=1.0: 20x × (224/224) = 20x; at scale=0.2: 20x × (224/(√0.2×224)) = 20x × (224/100.2) ≈ 44.7x.
+
 ## UNI
 
 - **Magnification (~9-25x)**: Methods section states patches are extracted at 256×256 at 20x (main training) and 512×512 at 20x (high-resolution fine-tuning in last 12,500/125,000 iterations). Supplementary Table 5 shows DINOv2 uses `global_crops_scale=(0.48, 1.0)` with 224×224 output.
