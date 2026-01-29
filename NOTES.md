@@ -44,6 +44,10 @@ This document explains how certain values in the `README.md` tables were derived
 
   These are published figures at unknown and variable magnifications, not standardized WSI patches. The paper explicitly notes CONCH did not use public slide collections like TCGA, PAIP, or GTEx. While the iBOT vision encoder uses global crop scale (0.32, 1.0) with 224×224 output (Supplementary Table 33), the source image magnifications are not documented or controlled, making effective magnification impossible to calculate.
 
+## Virchow
+
+- **Magnification (~20-35x)**: Methods section states WSIs are scanned at 20x (0.5 MPP) and non-overlapping 224×224 tiles are extracted directly. DINOv2 default hyperparameters are used, which includes `global_crops_scale=(0.32, 1.0)` with 224×224 output. At scale=1.0: 20x × (224/224) = 20x; at scale=0.32: 20x × (224/(√0.32×224)) = 20x × (224/126.7) ≈ 35x.
+
 ## UNI
 
 - **Magnification (~9-25x)**: Methods section states patches are extracted at 256×256 at 20x (main training) and 512×512 at 20x (high-resolution fine-tuning in last 12,500/125,000 iterations). Supplementary Table 5 shows DINOv2 uses `global_crops_scale=(0.48, 1.0)` with 224×224 output.
