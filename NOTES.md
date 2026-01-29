@@ -56,6 +56,10 @@ This document explains how certain values in the `README.md` tables were derived
 
 - **Magnification (~20-45x)**: Same tile extraction as DINO variant—0.5 MPP (20x). The official MAE repository uses `RandomResizedCrop(224, scale=(0.2, 1.0))`. At scale=1.0: 20x × (224/224) = 20x; at scale=0.2: 20x × (224/(√0.2×224)) = 20x × (224/100.2) ≈ 44.7x.
 
+## Path Foundation
+
+- **Magnification (~2-32x)**: Methods section states patches are "sampled evenly across multiple magnifications, including 5⨉ (~2 μm/pixel), 10⨉ (~1 μm/pixel), and 20⨉ (~0.5 μm/pixel)." Supplementary Table 1a shows original patch size is 256×256 with RandomResizedCrop scale (0.3, 1.0) to 224×224. SimCLR-best uses 512×512 patches (Table 3). At 5x with 512px patches, scale=1.0: 5x × (224/512) = 2.2x. At 20x with 256px patches, scale=0.3: 20x × (224/(√0.3×256)) = 32x.
+
 ## UNI
 
 - **Magnification (~9-25x)**: Methods section states patches are extracted at 256×256 at 20x (main training) and 512×512 at 20x (high-resolution fine-tuning in last 12,500/125,000 iterations). Supplementary Table 5 shows DINOv2 uses `global_crops_scale=(0.48, 1.0)` with 224×224 output.
