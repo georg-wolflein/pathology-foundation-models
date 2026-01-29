@@ -66,3 +66,10 @@ This document explains how certain values in the `README.md` tables were derived
   - Main training (256px, 90% of iterations): At scale=1.0: 20x × (224/256) = 17.5x; at scale=0.48: 20x × (224/177) = 25.3x → ~18-25x
   - High-res fine-tuning (512px, 10% of iterations): At scale=1.0: 20x × (224/512) = 8.8x; at scale=0.48: 20x × (224/355) = 12.6x → ~9-13x
   - Combined range: ~9-25x
+
+## PathoDuet
+
+- **Magnification (~18-124x)**: Section 4.1 states patches are 256×256 "under the highest magnification level" from TCGA. TCGA slides have mixed magnifications (20x or 40x). The code (`main_moco.py`) uses BYOL-style augmentation with `RandomResizedCrop(224, scale=(0.08, 1.0))`.
+  - For 20x slides: At scale=1.0: 20x × (224/256) = 17.5x; at scale=0.08: 20x × (224/72.4) = 61.9x → ~18-62x
+  - For 40x slides: At scale=1.0: 40x × (224/256) = 35x; at scale=0.08: 40x × (224/72.4) = 124x → ~35-124x
+  - Combined range across all slides: ~18-124x
