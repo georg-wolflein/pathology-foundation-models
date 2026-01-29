@@ -28,7 +28,7 @@ This document explains how certain values in the `README.md` tables were derived
   - MoCo v2: `scale=(0.2, 1.0)` → ~9-39x
   - SwAV: `scale=(0.14, 1.0)` for global crops → ~9-47x
   - Barlow Twins: `scale=(0.08, 1.0)` → ~9-62x
-  
+
   The full range spanning all three methods is ~9-62x. Base calculation: from 20x at scale=1.0: 20x × (224/512) = 8.75x; from 40x at scale=0.08 (BT): 40x × (224/(√0.08×512)) = 61.9x.
 
 ## Phikon
