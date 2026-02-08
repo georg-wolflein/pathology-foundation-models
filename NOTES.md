@@ -77,3 +77,7 @@ This document explains how certain values in the `README.md` tables were derived
 ## RudolfV
 
 - **Magnification (~18-31x)**: Patches are 256×256 at 0.5 MPP (20x). Methods Section 4.1: "The patch size is 256 × 256 pixels at 0.5 mpp." Built on DINOv2 with default `global_crops_scale=(0.32, 1.0)` and `global_crops_size=224`. The paper explicitly lists augmentation modifications (stain augmentation, 90° rotations, flips, solarization removal) but does not change the crop scale. At scale=1.0: 20x × (224/256) = 17.5x; at scale=0.32: 20x × (224/144.8) = 30.9x.
+
+## kaiko
+
+- **Magnification (~4-62x)**: Patches are 256×256 extracted at four magnification levels: 5×, 10×, 20×, and 40× (Section IV-C: "random sampling of 256×256 patches" and "training encompasses multiple magnification levels, specifically 5×, 10×, 20×, and 40×"). The ViT-L14 model uses DINOv2 with default `global_crops_scale=(0.32, 1.0)` and `global_crops_size=224`. The paper states deviations from default DINOv2 recipe but does not modify crop scales. At 5× scale=1.0: 5 × (224/256) = 4.4x; at 40× scale=0.32: 40 × (224/144.8) = 61.9x.
