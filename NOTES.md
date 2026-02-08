@@ -73,3 +73,7 @@ This document explains how certain values in the `README.md` tables were derived
   - For 20x slides: At scale=1.0: 20x × (224/256) = 17.5x; at scale=0.08: 20x × (224/72.4) = 61.9x → ~18-62x
   - For 40x slides: At scale=1.0: 40x × (224/256) = 35x; at scale=0.08: 40x × (224/72.4) = 124x → ~35-124x
   - Combined range across all slides: ~18-124x
+
+## RudolfV
+
+- **Magnification (~18-31x)**: Patches are 256×256 at 0.5 MPP (20x). Methods Section 4.1: "The patch size is 256 × 256 pixels at 0.5 mpp." Built on DINOv2 with default `global_crops_scale=(0.32, 1.0)` and `global_crops_size=224`. The paper explicitly lists augmentation modifications (stain augmentation, 90° rotations, flips, solarization removal) but does not change the crop scale. At scale=1.0: 20x × (224/256) = 17.5x; at scale=0.32: 20x × (224/144.8) = 30.9x.
