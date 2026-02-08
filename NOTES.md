@@ -85,3 +85,7 @@ This document explains how certain values in the `README.md` tables were derived
 ## PLUTO
 
 - **Magnification (~5-71x)**: Tiles are extracted at four resolutions: 40× (0.25 mpp), 20× (0.5 mpp), 10× (1 mpp), and 5× (2 mpp) (Section 2.2). Tile extraction pixel size is not explicitly stated in the paper, but inferred to be 224×224 based on: the paper's use of "224 × 224 image tile" as the canonical example (Section 2.1), throughput measurement with "tile size of 224 × 224" (Section 4.4), and the model input size of 224. Training is described as "consistent with DINOv2 training" (Section 3.2), with "Two global crops and four local crops of sizes 224 and 96 respectively." DINOv2 default augmentation uses `RandomResizedCrop(224, scale=(0.32, 1.0))`. At 5× scale=1.0: 5 × (224/224) = 5.0x; at 40× scale=0.32: 40 × (224/126.7) = 70.7x.
+
+## BEPH
+
+- **Magnification (~40-89x)**: Patches are 224×224 extracted at 40x magnification (GitHub README: "cropped into 224×224 tiles at 40X magnification"). The pre-training framework is BEiTv2 via mmselfsup. The training config (`beitv2_vit.py`) uses `RandomResizedCropAndInterpolationWithTwoPic(size=224, scale=(0.2, 1.0))`. At scale=1.0: 40x × (224/224) = 40x; at scale=0.2: 40x × (224/100.2) ≈ 89.4x.
