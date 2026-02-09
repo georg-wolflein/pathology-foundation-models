@@ -105,3 +105,7 @@ This document explains how certain values in the `README.md` tables were derived
 ## BEPH
 
 - **Magnification (~40-89x)**: Patches are 224×224 extracted at 40x magnification (GitHub README: "cropped into 224×224 tiles at 40X magnification"). The pre-training framework is BEiTv2 via mmselfsup. The training config (`beitv2_vit.py`) uses `RandomResizedCropAndInterpolationWithTwoPic(size=224, scale=(0.2, 1.0))`. At scale=1.0: 40x × (224/224) = 40x; at scale=0.2: 40x × (224/100.2) ≈ 89.4x.
+
+## Phikon-v2
+
+- **Magnification (~20-35x)**: Tiles are 224×224 extracted at 20x magnification (0.5 MPP). Section 3.1: "we then retrieve 224 x 224 histology tiles at magnification 20x (0.5 micrometers per pixel)." Trained with DINOv2 using `global_crops_scale=(0.32, 1.0)` and `global_crops_size=224` (Extended Table 5). At scale=1.0: 20x × (224/224) = 20x; at scale=0.32: 20x × (224/126.7) ≈ 35.4x.
