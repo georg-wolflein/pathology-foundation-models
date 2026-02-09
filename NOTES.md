@@ -117,3 +117,7 @@ This document explains how certain values in the `README.md` tables were derived
 ## Atlas
 
 - **Magnification (~4-62x)**: Atlas is trained using "an adapted RudolfV approach, which is based on the DinoV2 framework." Tiles are extracted at multiple resolutions: "0.25, 0.5, 1.0, and 2.0 microns per pixel, corresponding to objective microscopic magnifications of 40×, 20×, 10×, and 5×, respectively" (Section 3.1). The tile pixel size is not explicitly stated in the Atlas paper, but inferred as 256×256 from the RudolfV approach (RudolfV Methods Section 4.1: "The patch size is 256 × 256 pixels at 0.5 mpp"). The model is a ViT-H/14 using DINOv2, with standard input size 224. RudolfV uses DINOv2 default `global_crops_scale=(0.32, 1.0)` with `global_crops_size=224` (the paper lists augmentation modifications — stain augmentation, 90° rotations, flips, solarization removal — but does not change the crop scale). At 5× scale=1.0: 5 × (224/256) = 4.4x; at 40× scale=0.32: 40 × (224/144.8) = 61.9x.
+
+## UNI2-h / UNI2-g-preview
+
+- **Magnification (~9-25x)**: UNI2 models do not have a separate paper; the same training recipe as UNI1 is assumed (256×256 at 20x main training + 512×512 at 20x high-res fine-tuning, with `global_crops_scale=(0.48, 1.0)` and `global_crops_size=224`). See the UNI entry above for the full calculation. Both UNI2-h (ViT-H/14) and UNI2-g-preview (ViT-G/14) share the same training data (350K+ WSIs, 200M tiles) and DINOv2 recipe.
