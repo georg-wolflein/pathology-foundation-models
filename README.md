@@ -52,6 +52,7 @@ Notes:
 - Order is chronological
 - Some of these feature extractors have been evaluated in a benchmarking study for whole slide classification [here](https://arxiv.org/abs/2311.11772).
 - \*\* means inferred from other numbers provided in the paper, repository, or elsewhere
+- **Input size** refers to the size of the input image at inference time (in pixels)
 - **Magnification** is the effective magnification at which the model sees tissue during pretraining, accounting for any resizing, cropping, or other augmentations. For example, if patches are obtained at 20x with patch size 1024 but resized to 224 before being fed to the model, the effective magnification is 20x × (224/1024) ≈ 4.4x. We assume the following MPP-to-magnification relationship: 0.5 MPP = 20x, 1 MPP = 10x (i.e., MPP × magnification = 10). Often times, models may use random crops; in this case we estimate based on the parameters of the random crop augmentation.
 
 ## Slide-level / patient-level models

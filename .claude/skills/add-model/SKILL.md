@@ -26,25 +26,25 @@ The README has two tables:
 
 For **patch-level models**, extract these fields:
 
-| Field         | Description                     | Notes                                        |
-| ------------- | ------------------------------- | -------------------------------------------- |
-| Name          | Model name with paper link      | Use `**bold**` if >100K WSIs                 |
-| Group         | Research group/institution      | Link to lab website if available             |
-| Weights       | `:white_check_mark:` or `:x:`   | Check GitHub/HuggingFace                     |
-| Released      | Date + link to first release    | Format: `Mon YYYY[*](link)`                  |
-| SSL           | Self-supervised learning method | Link to paper if novel method                |
-| WSIs          | Number of whole-slide images    | Use `**bold**` if >100K; round to 2 sig figs |
-| Tiles         | Number of patches/tiles         | Round to 2 sig figs                          |
-| Patients      | Number of patients/cases        | Leave blank if not reported                  |
-| Batch size    | Training batch size             | Leave blank if not reported                  |
-| Iterations    | Training iterations or epochs   | Use "X epochs" or "XK" for iterations        |
-| Architecture  | Model architecture              | e.g., ResNet-50, ViT-B, ViT-L                |
-| Parameters    | Number of parameters            | e.g., 86M, 632M                              |
-| Embed dim     | Output embedding dimension      | e.g., 768, 1024, 2048                        |
-| Input size    | Input image size                | Usually 224                                  |
-| Magnification | **Leave blank**                 | Will be added separately via `add-magnification` skill |
-| Dataset       | Training dataset names          | e.g., TCGA, PAIP, proprietary                |
-| Links         | GitHub and/or HuggingFace icons | See format below                             |
+| Field         | Description                                    | Notes                                                  |
+| ------------- | ---------------------------------------------- | ------------------------------------------------------ |
+| Name          | Model name with paper link                     | Use `**bold**` if >100K WSIs                           |
+| Group         | Research group/institution                     | Link to lab website if available                       |
+| Weights       | `:white_check_mark:` or `:x:`                  | Check GitHub/HuggingFace                               |
+| Released      | Date + link to first release                   | Format: `Mon YYYY[*](link)`                            |
+| SSL           | Self-supervised learning method                | Link to paper if novel method                          |
+| WSIs          | Number of whole-slide images                   | Use `**bold**` if >100K; round to 2 sig figs           |
+| Tiles         | Number of patches/tiles                        | Round to 2 sig figs                                    |
+| Patients      | Number of patients/cases                       | Leave blank if not reported                            |
+| Batch size    | Training batch size                            | Leave blank if not reported                            |
+| Iterations    | Training iterations or epochs                  | Use "X epochs" or "XK" for iterations                  |
+| Architecture  | Model architecture                             | e.g., ResNet-50, ViT-B, ViT-L                          |
+| Parameters    | Number of parameters                           | e.g., 86M, 632M                                        |
+| Embed dim     | Output embedding dimension                     | e.g., 768, 1024, 2048                                  |
+| Input size    | Input image size at inference time (in pixels) | Usually 224                                            |
+| Magnification | **Leave blank**                                | Will be added separately via `add-magnification` skill |
+| Dataset       | Training dataset names                         | e.g., TCGA, PAIP, proprietary                          |
+| Links         | GitHub and/or HuggingFace icons                | See format below                                       |
 
 For **slide-level models**, the fields differ slightly (no Tiles column, has Patch size instead).
 
