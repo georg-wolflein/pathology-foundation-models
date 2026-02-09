@@ -82,6 +82,10 @@ This document explains how certain values in the `README.md` tables were derived
 
 - **Magnification (~4-62x)**: Patches are 256×256 extracted at four magnification levels: 5×, 10×, 20×, and 40× (Section IV-C: "random sampling of 256×256 patches" and "training encompasses multiple magnification levels, specifically 5×, 10×, 20×, and 40×"). The ViT-L14 model uses DINOv2 with default `global_crops_scale=(0.32, 1.0)` and `global_crops_size=224`. The paper states deviations from default DINOv2 recipe but does not modify crop scales. At 5× scale=1.0: 5 × (224/256) = 4.4x; at 40× scale=0.32: 40 × (224/144.8) = 61.9x.
 
+## Prov-GigaPath
+
+- **Magnification (~18-31x)**: Patches are 256×256 at 0.5 MPP (20x). Methods section: "we resized the WSIs to a standard resolution of 0.5 μm per pixel (MPP)—that is, 20× magnification" and "the images were cropped into 256 × 256-pixel tile images." Pretrained with DINOv2 using standard settings (Supplementary: "We followed the standard DINOv2 settings"). DINOv2 default config uses `global_crops_scale=(0.32, 1.0)` with `global_crops_size=224`. At scale=1.0: 20x × (224/256) = 17.5x; at scale=0.32: 20x × (224/144.8) = 30.9x.
+
 ## PLUTO
 
 - **Magnification (~5-71x)**: Tiles are extracted at four resolutions: 40× (0.25 mpp), 20× (0.5 mpp), 10× (1 mpp), and 5× (2 mpp) (Section 2.2). Tile extraction pixel size is not explicitly stated in the paper, but inferred to be 224×224 based on: the paper's use of "224 × 224 image tile" as the canonical example (Section 2.1), throughput measurement with "tile size of 224 × 224" (Section 4.4), and the model input size of 224. Training is described as "consistent with DINOv2 training" (Section 3.2), with "Two global crops and four local crops of sizes 224 and 96 respectively." DINOv2 default augmentation uses `RandomResizedCrop(224, scale=(0.32, 1.0))`. At 5× scale=1.0: 5 × (224/224) = 5.0x; at 40× scale=0.32: 40 × (224/126.7) = 70.7x.
