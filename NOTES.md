@@ -48,6 +48,10 @@ This document explains how certain values in the `README.md` tables were derived
 
 - **Magnification (~20-35x)**: Methods section states WSIs are scanned at 20x (0.5 MPP) and non-overlapping 224×224 tiles are extracted directly. DINOv2 default hyperparameters are used, which includes `global_crops_scale=(0.32, 1.0)` with 224×224 output. At scale=1.0: 20x × (224/224) = 20x; at scale=0.32: 20x × (224/(√0.32×224)) = 20x × (224/126.7) ≈ 35x.
 
+## Virchow 2 / Virchow 2G
+
+- **Magnification (~5-42x)**: Virchow2/2G use mixed magnification training across 5×, 10×, 20×, 40× (Section 6.1: "3.1M biopsy and resection WSIs processed from 225,401 patients across 5×, 10×, 20×, 40× magnifications"). Non-overlapping 392×392 source regions are extracted, and 224×224 global views are cropped using Extended Context Translation (ECT) instead of standard crop-and-resize. ECT uses a base scale range of (0.9, 1.1) (Tables A2/A3), which is adjusted by (224/392)² ≈ 0.327 to give actual crop scales of ~(0.29, 0.36). This results in crop sizes of ~213-235 pixels from the 392×392 source, resized to 224—approximately ±5% rescaling. At 5× with max scale (most zoom-out): 5 × (224/234.9) ≈ 4.8×; at 40× with min scale (most zoom-in): 40 × (224/212.5) ≈ 42.2×. Both Virchow2 (ViT-H) and Virchow2G (ViT-G) share the same ECT parameters and training data.
+
 ## Campanella et al. (DINO)
 
 - **Magnification (~20-32x)**: Methods section states slides were scanned at 0.25 MPP and "tissue tiles were extracted from each slide at 0.5 MPP resolution" (i.e., 20x). The paper explicitly states: "The SSL algorithms were cloned directly from their official GitHub repositories. Unless specified, no changes were made to the code except for customizing the data loading procedures." The official DINO repository uses `global_crops_scale=(0.4, 1.0)` with 224×224 output. At scale=1.0: 20x × (224/224) = 20x; at scale=0.4: 20x × (224/(√0.4×224)) = 20x × (224/141.7) ≈ 31.6x.
